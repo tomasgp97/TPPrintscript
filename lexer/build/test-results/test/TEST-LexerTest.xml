@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LexerTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-07-20T05:26:54" hostname="DESKTOP-NF9RDM7" time="146.742">
+  <properties/>
+  <testcase name="test001AllTokensAreIdentified" classname="LexerTest" time="146.742">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
