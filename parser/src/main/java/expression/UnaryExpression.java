@@ -1,7 +1,7 @@
 package expression;
 
+import impl.ExpressionVisitor;
 import token.Token;
-import visitor.ExpressionVisitor;
 
 public class UnaryExpression implements Expression {
 
@@ -24,5 +24,10 @@ public class UnaryExpression implements Expression {
     @Override
     public Object accept(ExpressionVisitor visitor) {
         return visitor.visit(this);
+    }
+
+    @Override
+    public String getValueAsString() {
+        return operand.getTokenValue() + expression.getValueAsString();
     }
 }

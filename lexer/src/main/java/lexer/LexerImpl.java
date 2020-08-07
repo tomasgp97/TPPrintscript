@@ -1,7 +1,10 @@
 package lexer;
 
 import token.*;
+import url.UrlSolver;
+import url.UrlSolverImpl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +17,7 @@ public class LexerImpl implements Lexer {
 
     private final AcceptedTokens acceptedTokens;
     private final TokenFactory tokenFactory;
+    private final UrlSolver urlSolver;
 
     private int line = 0;
     private int column = 0;
@@ -21,6 +25,7 @@ public class LexerImpl implements Lexer {
     public LexerImpl() {
         this.tokenFactory = TokenFactory.newTokenFactory();
         this.acceptedTokens = new AcceptedTokens();
+        this.urlSolver = new UrlSolverImpl();
     }
 
     @Override
@@ -46,10 +51,23 @@ public class LexerImpl implements Lexer {
               }
             }
         }
+        // recognizes the url token (that contains the regex to download the file) and lexes the file appending the new tokens
+        for (Token t: resultTokens) {
+            if (isUrl(t)) {
+                try {
+                    Stream<Character> fileContents = this.urlSolver.downloadFile(t.getTokenValue());
+                    resultTokens.addAll(lex(fileContents));
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
 
-        resultTokens.add(tokenFactory.create(TokenType.EOF, "",new Position(this.line, this.column)));
+
+//        resultTokens.add(tokenFactory.create(TokenType.EOF, "",new Position(this.line, this.column)));
         return resultTokens;
     }
+
 
     private Matcher getMatcher(Stream<Character> input) {
         StringBuilder tokenPatternsBuffer = new StringBuilder();
@@ -66,5 +84,10 @@ public class LexerImpl implements Lexer {
     private boolean isNewLine(Token token) {
         return token.getTokenType() == TokenType.NEWLINE;
     }
+
+    private boolean isUrl(Token token) {
+        return token.getTokenType() == TokenType.URL;
+    }
+
 
 }

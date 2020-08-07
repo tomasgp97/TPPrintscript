@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LexerTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-07-20T05:26:54" hostname="DESKTOP-NF9RDM7" time="146.742">
+<testsuite name="LexerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-05T01:07:19" hostname="DESKTOP-NF9RDM7" time="0.056">
   <properties/>
-  <testcase name="test001AllTokensAreIdentified" classname="LexerTest" time="146.742">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="printUrlToken" classname="LexerTest" time="0.056"/>
+  <system-out><![CDATA[URL
+EOF
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

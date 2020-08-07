@@ -9,6 +9,12 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile project(":parser")
+    compile project(":interpreter")
+    compile project(":lexer")
+    compile project(":generator")
+
 }

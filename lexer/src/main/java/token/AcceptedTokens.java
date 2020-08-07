@@ -39,10 +39,11 @@ public class AcceptedTokens {
         tokenFormats.put(TokenType.LESS, "[<]");
         tokenFormats.put(TokenType.LESSEQ, "<=");
         tokenFormats.put(TokenType.PRINT, "print");
+        tokenFormats.put(TokenType.URL, "[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
         tokenFormats.put(TokenType.STRING, "\"([_a-zA-Z0-9 !\\/.])*\"|'([_a-zA-Z0-9 !\\/.])*'");
         tokenFormats.put(TokenType.IDENTIFIER , "[_a-zA-Z][_a-zA-Z0-9]*");
         tokenFormats.put(TokenType.NEWLINE,"\n");
-        tokenFormats.put(TokenType.EOF, "");
+        tokenFormats.put(TokenType.EOF, "$");
         tokenFormats.put(TokenType.UNKNOWN , ",");
     }
 

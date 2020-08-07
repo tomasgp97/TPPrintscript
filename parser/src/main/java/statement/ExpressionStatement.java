@@ -1,7 +1,7 @@
 package statement;
 
 import expression.Expression;
-import visitor.StatementVisitor;
+import impl.StatementVisitor;
 
 public class ExpressionStatement implements Statement {
     private final Expression expression;
@@ -17,5 +17,10 @@ public class ExpressionStatement implements Statement {
     @Override
     public void accept(StatementVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public String getValueAsString() {
+        return expression.getValueAsString();
     }
 }

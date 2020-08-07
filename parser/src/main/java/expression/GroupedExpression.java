@@ -1,6 +1,7 @@
 package expression;
 
-import visitor.ExpressionVisitor;
+
+import impl.ExpressionVisitor;
 
 public class GroupedExpression implements Expression {
     private final Expression expression;
@@ -16,5 +17,10 @@ public class GroupedExpression implements Expression {
     @Override
     public Object accept(ExpressionVisitor visitor) {
         return visitor.visit(this);
+    }
+
+    @Override
+    public String getValueAsString() {
+        return expression.getValueAsString();
     }
 }

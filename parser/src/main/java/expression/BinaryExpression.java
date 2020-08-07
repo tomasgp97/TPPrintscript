@@ -1,7 +1,7 @@
 package expression;
 
+import impl.ExpressionVisitor;
 import token.Token;
-import visitor.ExpressionVisitor;
 
 public class BinaryExpression implements Expression {
 
@@ -30,5 +30,10 @@ public class BinaryExpression implements Expression {
     @Override
     public Object accept(ExpressionVisitor visitor) {
         return visitor.visit(this);
+    }
+
+    @Override
+    public String getValueAsString() {
+        return left.getValueAsString() + operand.getTokenValue() + right.getValueAsString();
     }
 }

@@ -3,4 +3,7 @@ include 'lexer'
 include 'parser'
 include 'cli'
 include 'executor'
+include 'interpreter'
+include 'generator'
+include 'visitor'
 

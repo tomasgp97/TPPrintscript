@@ -1,7 +1,7 @@
 package statement;
 
 import expression.Expression;
-import visitor.StatementVisitor;
+import impl.StatementVisitor;
 
 public class IfStatement implements Statement {
 
@@ -25,8 +25,9 @@ public class IfStatement implements Statement {
         visitor.visit(this);
     }
 
-    public Expression getCondition() {
-        return condition;
+    @Override
+    public String getValueAsString() {
+        return condition.getValueAsString() + thenStatement.getValueAsString() + elseStatement.getValueAsString();
     }
 
     public Statement getThenStatement() {
@@ -36,4 +37,6 @@ public class IfStatement implements Statement {
     public Statement getElseStatement() {
         return elseStatement;
     }
+
+
 }

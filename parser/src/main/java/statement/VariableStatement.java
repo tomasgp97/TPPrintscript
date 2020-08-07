@@ -1,9 +1,10 @@
 package statement;
 
 import expression.Expression;
+import impl.StatementVisitor;
 import token.Token;
 import token.TokenType;
-import visitor.StatementVisitor;
+
 
 public class VariableStatement implements Statement{
     private final Token keyword;
@@ -43,4 +44,12 @@ public class VariableStatement implements Statement{
     public void accept(StatementVisitor visitor) {
         visitor.visit(this);
     }
+
+    @Override
+    public String getValueAsString() {
+        return keyword.getTokenValue() + name.getTokenValue() +
+                type.name() + initializer.getValueAsString();
+    }
+
+
 }

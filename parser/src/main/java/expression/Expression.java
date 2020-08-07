@@ -1,7 +1,9 @@
 package expression;
 
-import visitor.ExpressionVisitor;
+
+import impl.ExpressionVisitor;
 
 public interface Expression {
     Object accept(ExpressionVisitor visitor);
+    String getValueAsString();
 }

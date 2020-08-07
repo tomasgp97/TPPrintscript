@@ -30,6 +30,7 @@ public enum TokenType {
     LESS,
     LESSEQ,
     PRINT,
+    URL,
     IDENTIFIER,
     STRING,
     NEWLINE,
